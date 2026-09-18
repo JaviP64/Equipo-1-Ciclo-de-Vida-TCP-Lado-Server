@@ -22,6 +22,12 @@ textoCodificado = texto.encode("UTF-8")
 #	- Se envia despues
 conn.send(textoCodificado)
 
-# usar el socket devuelto por accept() para comunicarse, no el original
+#	- Recibe otro mensaje
+respuesta = conn.recv(1024)
+
+#	- Revisar mensaje
+print(textoCodificado.decode("UTF-8"), respuesta.decode("UTF-8"))
+
+# Se cierran ambos sockets
 conn.close()
 s.close()
